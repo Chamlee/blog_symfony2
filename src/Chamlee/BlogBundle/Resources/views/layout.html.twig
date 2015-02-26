@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/chamleeblog/css/blog.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/chamleeblog/css/sidebar.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block sidebar %}
+    {% render(controller('ChamleeBlogBundle:Default:sidebar')) %}
+{% endblock %}

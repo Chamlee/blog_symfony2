@@ -1,0 +1,5 @@
+services:
+    chamlee_blog.twig.extension:
+        class: Chamlee\BlogBundle\Twig\Extensions\ChamleeBlogExtension
+        tags:
+            - { name: twig.extension }

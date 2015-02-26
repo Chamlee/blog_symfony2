@@ -1,0 +1,27 @@
+{% extends 'ChamleeBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <header>
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|created_ago }}</time></div>
+            <h2>{{ blog.title }}</h2>
+        </header>
+       
+        <img src="{{ asset('bundles/chamleeblog/image/' ~ blog.image) }}" alt="{{ blog.title }} image not found" class="large" />
+        <div>
+            <p>{{ blog.blog }}</p>
+        </div>
+    </article>
+    <p>{{ blog.author }}</p>
+
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Comments</h3>
+            {% include 'ChamleeBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        </section>
+        <h3>Add Comment</h3>
+        {% render(controller('ChamleeBlogBundle:Comment:new', { 'blog_id': blog.id })) %}
+    </section>
+{% endblock %}

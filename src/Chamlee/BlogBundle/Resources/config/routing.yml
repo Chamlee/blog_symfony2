@@ -1,0 +1,29 @@
+chamlee_blog_homepage:
+    path: /
+    defaults: { _controller: ChamleeBlogBundle:Default:index }
+
+chamlee_blog_about:
+    path: /about
+    defaults: { _controller: ChamleeBlogBundle:Default:about }
+    requirements:
+        _method: GET
+
+chamlee_blog_contact:
+    pattern: /contact
+    defaults: { _controller:ChamleeBlogBundle:Default:contact }
+    requirements:
+        _mehod: GET|POST
+
+chamlee_blog_article_show:
+    pattern: /article/{id}/{slug}
+    defaults: { _controller:ChamleeBlogBundle:Default:show }
+    requirements:
+        _method: GET
+        id: \d+
+
+chamlee_blog_comment_create:
+    pattern: /comment/{blog_id}
+    defaults: { _controller:ChamleeBlogBundle:Comment:create}
+    requirements:
+        _method: POST
+        blog_id: \d+
